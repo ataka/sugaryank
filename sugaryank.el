@@ -1,7 +1,14 @@
-;; Sugaryank
+;;; sugaryank.el --- edit text to paste just before yank
+;; -*- Mode: Emacs-Lisp -*-
+
+;; Copyright (c) 2000-2002, 2015 Masayuki Ataka <masayuki.ataka@gmail.com>
+
+;; Author: Masayuki Ataka <masayuki.ataka@gmail.com>
+;; URL: https://github.com/ataka/sugaryank
+;; Keywords: convenience
 
 ;;; Commentary:
-;;
+
 ;; Sugaryank has two major modes to modify text. `edit-mode' and
 ;; `overwrite-mode'.
 ;;
@@ -41,6 +48,8 @@
 ;; C-c C-q   Quit sugaryank mode
 ;; C-c C-e   To edit-mode
 ;;
+
+;;; Code:
 
 (defvar sugaryank-replace-copied-text nil
   "*t replace copied text modified one.
@@ -390,3 +399,4 @@ Turning on Funny Modify overwrite mode runs the normal hook
   (let ((overwrite-mode nil))
     (insert-char ? arg)))
 
+;;; sugaryank.el ends here
