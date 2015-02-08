@@ -399,4 +399,7 @@ Turning on Funny Modify overwrite mode runs the normal hook
   (let ((overwrite-mode nil))
     (insert-char ? arg)))
 
+
+(provide 'sugaryank)
+
 ;;; sugaryank.el ends here
