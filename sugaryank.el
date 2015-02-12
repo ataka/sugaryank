@@ -74,18 +74,11 @@ If called directly, modified text is the last kill-ring element."
   ;; And if kill-ring is nil, then error message displays.
   (if (null kill-ring)
       (error "kill-ring is empty, Funny Modify doesn't work."))
-
-  (if (fcopy-called-interactively-p)
-      (setq fcopy-window (current-window-configuration)
-	    fcopy-point  (point)))
   (let ((mode sugaryank-default-mode))
     (sugaryank-pop-to-buffer)
     (cond
      ((eq mode 'edit)        (sugaryank-edit-mode))
-     ((eq mode 'overwrite)   (sugaryank-overwrite-mode))
-     (t  (unwind-protect
-	     (error "Funny Modify failed.  There is no text in kill-ring.")
-	   (fcopy-exit))))))
+     ((eq mode 'overwrite)   (sugaryank-overwrite-mode)))))
 
 (defun sugaryank-pop-to-buffer ()
   (pop-to-buffer sugaryank-modify-buffer)
